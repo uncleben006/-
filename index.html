@@ -49,6 +49,7 @@
         <div class="box" @click="showInfo(id)">
           <div class="title">{{data.storeName}}</div>
           <hr/>
+          <img class="image" :src="'./image/' + data.storePhoto" alt=""></img>
           <div class="address">地址：{{data.storeAddress}}</div>
           <hr/>
           <div class="info">類型：{{data.storeType}}</div>
@@ -64,7 +65,8 @@
       </div>
       <div class="info-column">       
         <div class="left">
-          <div class="left-column">           
+          <div class="left-column">  
+            <img :src="'./image/' + stores[2].data[stores_id].storePhoto" alt="" class="store-data store-img">         
             <div class="bottom-column">
               <div class="store-data store-type">類型: {{stores[2].data[stores_id].storeType}}</div>
               <div class="store-data store-address">地址: <br/><span>{{stores[2].data[stores_id].storeAddress}}</span></div>
