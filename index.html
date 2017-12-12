@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Vue.js抓取全台桌遊店家( 圖檔連結死掉 )</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  
+<div id="app"> 
+  <div class="center-column">
+    <h1>全台桌遊店家</h1>
+    <h3>資料來源 - 新天鵝堡與桌末狂歡</h3>
+    <div class="pagination">
+      <ul>
+        <li :class="{'disabled': (currPage === 1)}" @click.prevent="setPage(currPage-1); reOrder()"><a href="#">Prev</a></li>
+        <li :class="{'active': (currPage === (n))}" @click.prevent="setPage(n); reOrder()" v-for="n in totalPage"><a href="#">{{n}}</a></li>
+        <li :class="{'disabled': (currPage === totalPage)}" @click.prevent="setPage(currPage+1); reOrder()"><a href="#">Next</a></li>
+      </ul>
+    </div>
+    <div class="search">搜尋：
+      <input type="text" v-model="filter_name" style="margin:0;"/>
+      <button @click="filter_name = ''; reOrder()">清除</button>
+    </div>
+    <div class="search">店家類型：
+      <button @click="filter_name = '桌遊專門店'; reOrder(); currPage=1;">桌遊專門店</button>
+      <button @click="filter_name = '桌遊販賣店'; reOrder(); currPage=1;">桌遊販賣店</button>
+      <button @click="filter_name = '複合式餐飲桌遊店'; reOrder(); currPage=1;">複合式餐飲桌遊店</button>
+      <button @click="filter_name = '其他'; reOrder(); currPage=1;">其他</button>
+    </div>
+    <div class="search">縣市：
+      <button @click="filter_name = '臺北'; reOrder(); currPage=1;">臺北</button>
+      <button @click="filter_name = '新北'; reOrder(); currPage=1;">新北</button>
+      <button @click="filter_name = '桃園'; reOrder(); currPage=1;">桃園</button>
+      <button @click="filter_name = '臺中'; reOrder(); currPage=1;">臺中</button>
+      <button @click="filter_name = '高雄'; reOrder(); currPage=1;">高雄</button>
+    </div>
+  </div>
+  <div class="store-column">
+    <div class="inner-column">
+      <div class="store" v-for="(data,id) in filteredRows.slice(pageStart,pageStart+countOfPage)">
+        <div class="box" @click="showInfo(id)">
+          <div class="title">{{data.storeName}}</div>
+          <hr/>
+          <div class="address">地址：{{data.storeAddress}}</div>
+          <hr/>
+          <div class="info">類型：{{data.storeType}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="store-outclick" v-if="outclick_show" @click="closeInfo"></div>
+  <div class="store-info">
+    <div class="center-column">  
+      <div class="store-title">
+        <h1>{{stores[2].data[stores_id].storeName}}</h1><strong class="exit" @click="closeInfo">X</strong>
+      </div>
+      <div class="info-column">       
+        <div class="left">
+          <div class="left-column">           
+            <div class="bottom-column">
+              <div class="store-data store-type">類型: {{stores[2].data[stores_id].storeType}}</div>
+              <div class="store-data store-address">地址: <br/><span>{{stores[2].data[stores_id].storeAddress}}</span></div>
+              <div class="store-data store-phone">電話: {{stores[2].data[stores_id].storeNumber}}</div>
+              <div class="store-data store-time">營業時間: <br/><span v-html="stores[2].data[stores_id].storeTime"></span></div>
+              <div class="store-data store-spend">消費模式:<br/><span v-html="stores[2].data[stores_id].storeSpend"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="right-column">
+            <iframe v-if="outclick_show" v-bind:src="stores[2].data[stores_id].googleURL" frameborder="0" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+<script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js'></script>
+
+    <script  src="js/index.js"></script>
+
+</body>
+</html>

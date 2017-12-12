@@ -1,0 +1,202 @@
+$color_lighter: #F4D06F
+$color_light: #DB7C26
+$color: #D8572A
+$color_dark: #C32F27
+$color_darker: #780116
+
+.store-column
+  display: block 
+.store-info
+  display: block 
+
+
+
+*
+  // border: solid 1px
+  box-sizing: border-box
+  font-family: 微軟正黑體
+  vertical-align: top
+  backface-visibility: hidden
+  // transition: 0.2s
+hr
+  border-color: $color
+  margin: 5px 0
+html, body
+  margin: 0
+  padding: 0
+  background-color: #eee
+#app
+.center-column
+  width: 80%
+  margin-left: auto
+  margin-right: auto
+  text-align: center
+.search
+  margin: 10px auto
+.store-column
+  width: 90%
+  margin: 0 auto  
+.inner-column
+  margin: 0 auto
+  &:after
+    content: ''
+    display: block
+    clear: both
+  // .inner-column      
+  //   width: 100% 
+  //   column-count: 4
+  // @media screen and (max-width: 1080px)
+  //   .inner-column      
+  //     column-count: 3
+  // @media screen and (max-width: 780px)
+  //   .inner-column      
+  //     column-count: 2
+  // @media screen and (max-width: 530px)
+  //   .inner-column     
+  //     column-count: 1
+.store
+  display: inline-block
+  float: left
+  width: 200px    
+  min-width: 200px    
+  margin: 0.5rem    
+  cursor: pointer
+  border: outset 2px $color_light
+  background-color: #fff
+  box-shadow: 0px 0px 30px rgba(0,0,0,0.2)
+  &:hover
+    transform: translate(2px,2px)
+    border: inset 2px $color_light 
+  .box
+    padding: 2%  
+  .image
+    width: 100%
+.store-close
+  position: absolute
+  left: 50%
+  right: 50%
+  transform: translate(-50%, -50%)
+  width: 100%
+  height: 100%
+  background-color: #ccc
+.store-outclick
+  position: fixed
+  width: 100%
+  height: 100%
+  background-color: rgba($color_lighter,0.45)
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+.store-info
+  width: 100%
+  position: fixed
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%) scale(0)
+  transition: 0.2s
+  .center-column
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-40%)
+    width: 60%
+  .store-title
+    margin: 0
+    background-color: $color_lighter  
+    z-index: 50
+    position: absolute
+    width: 100%
+    transform: translateY(-99%)
+    // border-radius: 10px 10px 0px 0px
+    border-left: solid 1px $color_dark
+    border-right: solid 1px $color_dark  
+    border-top: solid 1px $color_dark
+  .exit  
+    display: inline-block
+    font-size: 0.5em
+    border: outset 2px $color_dark
+    padding: 2px 7px
+    position: absolute
+    right: 5px
+    top: 5px
+    border-radius: 0px
+    transition: 0.1s
+    &:hover
+      border: inset 2px $color_dark
+      transform: translate(2px, 2px)        
+    
+  .color-lighten
+    background-color: lighten(#ccc,10)
+  .info-column
+    height: 60vh
+    overflow: auto     
+    display: flex
+    border-radius: 0px 0px 10px 10px
+    border-left: solid 1px $color_dark
+    border-bottom: solid 1px $color_dark
+    // &::-webkit-scrollbar-track
+    //   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9)
+    //   border-radius: 10px
+    //   background-color: rgba(0,0,0,0)
+    //   border-width: 1px
+    //   border-style: inherit
+      
+    &::-webkit-scrollbar
+      width: 14px
+      border-radius: 10px
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9)
+      background-color: #CCCCCC
+    &::-webkit-scrollbar-thumb
+      border-radius: 10px
+      background-color: darken($color_darker,5)
+      background-image: -webkit-linear-gradient(90deg,transparent,rgba(0, 0, 0, 0.4) 50%,transparent,transparent)
+      border-radius: 10px
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9)
+    .left
+      width: 40%
+    .left-column
+      background-color: $color_light
+    .right
+      position: absolute
+      width: 59.5%
+      height: 60vh
+      right: 12px      
+    .right-column
+      width: 100%
+      height: 100%
+      iframe
+        border: inset 5px $color_dark
+        width: 100%
+        height: 100%  
+        background-color: #f0f8ff
+    .store-img
+      width: 100%
+      padding: 0
+    .bottom-column
+      display: flex
+      flex-direction: column
+    .store-data
+      padding: 5px
+      border: solid 1px $color_darker
+  @media screen and (max-width: 780px)
+    .info-column
+      flex-direction: column
+      height: 75vh
+    .left
+      order: 2
+      width: 100% !important
+    .right
+      order: 1
+      width: 100% !important
+      position: initial !important
+      overflow: initial !important
+      height: 50vh !important
+      .right-column
+        width: 100%
+        transform: translate(0)
+        position: relative
+        iframe
+          width: 100%
+    
+    
+      
