@@ -3800,7 +3800,7 @@
 var vm = new Vue({
   el: "#app",
   data: {
-    stores: stores_array,   
+    stores: [],   
     stores_id: "1",
     outclick_show: false,
     page: 0,
