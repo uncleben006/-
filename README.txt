@@ -1,3 +1,3 @@
-A Pen created at CodePen.io. You can find this one at https://codepen.io/uncleben006/pen/VMEqWw.
+You can find this one at https://uncleben006.github.io/TW-Board-Game-Stores/.
 
  
