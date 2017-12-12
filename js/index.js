@@ -3833,7 +3833,7 @@ var vm = new Vue({
     }
   },
   created: function(){
-    $.get( "./store.json" , function(res){
+    $.get( "./store" , function(res){
       vm.stores = res;
     });
   },
