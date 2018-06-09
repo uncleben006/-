@@ -75,7 +75,7 @@ hr {
   min-width: 200px;
   margin: 0.5rem;
   cursor: pointer;
-  border: outset 2px #DB7C26;
+  // border: outset 2px #DB7C26;
   background-color: #fff;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
 }
@@ -86,7 +86,7 @@ hr {
 }
 .store:active {
   transform: translate(5px, 5px);
-  border: inset 2px #DB7C26;
+  // border: inset 2px #DB7C26;
 }
 .store .box {
   padding: 2%;
