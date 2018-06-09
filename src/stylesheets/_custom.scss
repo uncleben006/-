@@ -1,0 +1,117 @@
+// for all
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: theme-color-level(dark, -2);
+}
+hr {
+  border-color: #D8572A;
+  margin: 5px 0;
+}
+.nav-link {
+  display: inline-block;
+}
+
+.navbar-nav .active a{
+  border-bottom: solid 0.25em orange 
+}
+.form-group {
+  position: relative;
+}
+.form-group .icon-right {
+  position: absolute;
+  right: 10px;
+  padding: 10px;
+}
+.form-group .icon-left {
+  position: absolute;
+  left: 5px;
+  padding: 10px;
+}
+
+.border-left-vive {
+  border-left: solid 0.25rem $vive;
+}
+.fas {
+  color: theme-color-level(secondary, -5);
+}
+.icon {
+  width: 30px;
+  height: 30px;
+}
+// chatroom
+.chatroom {
+  height: calc( 100vh - 76px );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chatroom-height {
+  height: calc( 100vh - 72px );
+  overflow: auto;
+}  
+.bg-warning-light {
+  background-color: theme-color-level(warning, -5);
+}
+// boardGame
+.modal.fade .modal-dialog {
+  transform: translate(0, 0); 
+}
+.modal-body {
+  max-height: 60vh;
+  overflow: auto;
+}
+.search {
+  margin: 10px auto;
+}
+.store {
+  display: inline-block;
+  float: left;
+  width: 200px;
+  min-width: 200px;
+  margin: 0.5rem;
+  cursor: pointer;
+  border: outset 2px #DB7C26;
+  background-color: #fff;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+}
+.store:hover {
+  // background-color: beige;  
+  background-color: theme-color-level(warning, -10);
+  transition: background-color 0.3s ease;
+}
+.store:active {
+  transform: translate(5px, 5px);
+  border: inset 2px #DB7C26;
+}
+.store .box {
+  padding: 2%;
+}
+@media ( min-width:768px ){
+  .chatroom-height {
+    height: 80vh;
+    overflow: auto;
+  }  
+}
+.arrow-down {
+  position: sticky; 
+  bottom: -50px; 
+  text-align: right; 
+  opacity: 0;
+  transition: 0.5s
+}
+.arrow-down i {  
+  cursor: pointer;
+}
+.card:hover .arrow-down {
+  bottom: -5px; 
+  opacity: 1;
+  transition: 0.5s
+}
+
+
+
